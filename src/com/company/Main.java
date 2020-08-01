@@ -6,30 +6,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
 
-        File initialFile = new File("src/cars_input.txt");
-        BufferedReader reader = new BufferedReader(new FileReader(initialFile));
-
-        String st;
-        ArrayList<Car> carsArrayList = new ArrayList<>();
-        while ((st = reader.readLine()) != null){
-            String[] s = st.split(",");
-            double horsepower = Double.parseDouble(s[2]);
-            Car car = new Car(s[0],s[1],horsepower);
-            carsArrayList.add(car);
-
-        }
-
-        int no = Integer.parseInt(args[0]);
-        String requiredOrigin = args[1];
-        ArrayList<Car> requiredOriginCars = findCarsOfOrigin(requiredOrigin,carsArrayList);
-        List<Car> requiredCars = findCarsWithMoreAverageHP(requiredOriginCars,no);
-        for(Car c : requiredCars){
-            System.out.println(c.toString());
-        }
-
-    }
 
     private static List<Car> findCarsWithMoreAverageHP(ArrayList<Car> requiredOriginCars, int no) {
         double sum = 0;
